@@ -23,15 +23,15 @@
 
 var express = require('express');
 var router = express.Router();
-const userController = require('../controller/user');
 
 /* GET users listing. */
-
-router.get('/login/:name', userController.getLoginCreate);
-router.post('/login/:name', userController.postLoginCreate);
-
-router.get('/signup', userController.getUserCreate);
-router.post('/signup', userController.postUserCreate);
-
-
+router.get('/login', function(req, res, next) {
+    res.send('Trang  loginn');
+});
+router.get('/signup', function(req, res, next) {
+    res.send('Trang  dang  ky');
+});
+router.get('/logout', function(req, res, next) {
+    res.send('Trang  logoutt');
+});
 module.exports = router;

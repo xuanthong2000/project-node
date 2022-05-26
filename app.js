@@ -8,19 +8,31 @@ var indexRouter = require('./routes/index');
 var todoListRouter = require('./routes/todolist.routes');
 var usersRouter = require('./routes/users.routes');
 
+let mongoose = require('mongoose');
 
 var app = express();
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/todolist', { useNewUrlParser: true, useNewUrlParser: true, useUnifiedTopology: true });
-//Bắt sự kiện error
-db.on('error', function(err) {
-    if (err) console.log(err)
-});
-//Bắt sự kiện open
-db.once('open', function() {
-    console.log("Kết nối thành công !");
-});
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost:27017/todolist', { useNewUrlParser: true, useNewUrlParser: true, useUnifiedTopology: true });
+// //Bắt sự kiện error
+// db.on('error', function(err) {
+//     if (err) console.log(err)
+// });
+// //Bắt sự kiện open
+// db.once('open', function() {
+//     console.log("Kết nối thành công !");
+// });
+
+
+const req = require('express/lib/request');
+const res = require('express/lib/response');
+mongoose.connect('mongodb://localhost:27017/todolist', { useNewUrlParser: true });
+var db = mongoose.connection;
+// Added check for DB connection
+if (!db)
+    console.log("Error connecting db")
+else
+    console.log("Db connected successfully")
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -30,12 +42,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: "lap trinh nodejs" }));
 
 app.use('/', indexRouter);
 
 app.use('/todolist', todoListRouter);
 app.use('/users', usersRouter);
-
+app.use((req, res, next) => {
+    if (req.session.email) {
+        res.locals.email = req.session.email;
+        next();
+    } else {
+        res.redirect('/users/login');
+    }
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
