@@ -41,9 +41,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: "lap trinh nodejs" }));
 
-app.use('/', indexRouter);
 
-app.use('/todolist', todoListRouter);
 app.use('/users', usersRouter);
 //kiem tra middware user email
 app.use((req, res, next) => {
@@ -54,6 +52,9 @@ app.use((req, res, next) => {
         res.redirect('/users/login');
     }
 });
+app.use('/', indexRouter);
+
+app.use('/todolist', todoListRouter);
 mongoose.connect('mongodb://localhost:27017/admin', { useNewUrlParser: true });
 var db = mongoose.connection;
 
