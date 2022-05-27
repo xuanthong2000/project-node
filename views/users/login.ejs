@@ -1,5 +1,10 @@
-<h1>Trang login cua he thong</h1>
-<form action="/users/login" method="POST">
-    <input type="text" placeholder="email" name="email">
-    <input type="password" placeholder="password" name="password">
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<h1>Login</h1>
+<p class="login_er">
+    <%= meg_er %>
+</p>
+<form action="/users/login" method="post">
+    <input type="text" placeholder="Nhap email vao day" name="email">
+    <input type="password" placeholder="Nhap password vao day" name="password">
+    <button type="submit">Login</button>
 </form>
