@@ -1,6 +1,198 @@
-<h1>Signup</h1>
+<!-- <h1>Signup</h1>
 <form action="/users/signup" method="post">
     <input type="text" placeholder="Nhap email vao day" name="email">
     <input type="password" placeholder="Nhap password vao day" name="password">
     <button type="submit">Submit</button>
-</form>
+</form> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/signin.css">
+    <title>Đăng ký</title>
+</head>
+
+<body>
+    <section class="container">
+        <section class="login-container">
+            <article class="login-container__signin">
+                <form action="/users/signup" method="post" class="login-container__form">
+                    <input class=" input login-container__email-input" type="email" name="email" required placeholder="Nhập email đăng ký">
+                    <input class=" input login-container__password-input" type="password" name="password" placeholder="Password" required>
+                    <button class=" btn login-container__submit-btn" name="submit" type="submit">
+                            Đăng ký
+                        </button>
+                </form>
+            </article>
+
+            <!-- <section class="login-container__signup">
+                <article class="container__signup-header">
+                    <p>Have an Id. Start taking your note</p>
+                    <p>click on sign-in here</p>
+                </article>
+
+                <article class="container__signup-button">
+                    <form method="get" action="/signin">
+                        <button type="submit" ; class="btn container__signup__signup-btn">
+                    Sign-in here
+                    </button>
+                    </form>
+                </article>
+            </section> -->
+        </section>
+        <section class="side-container">
+            <section class="side-container__header">
+                <h1>Sử dụng To-do App</h1>
+                <p>Ghi lại công việc
+                    <blockquote>Không quên các công việc !</blockquote>
+                </p>
+            </section>
+        </section>
+    </section>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 62.5%;
+        }
+        
+        .container {
+            background: linear-gradient(#20222b, black);
+            filter: brightness(5px);
+            display: flex;
+            flex-direction: column;
+            flex-direction: column-reverse;
+            /*border: 1px solid red;;*/
+            height: auto;
+            /* height: 100vh; */
+        }
+        
+        .login-container {
+            filter: blur();
+            background: linear-gradient(#20222b, black);
+            box-shadow: 10px 20px 10px 10px #050505;
+            border-radius: 20px;
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+            /* margin:  auto 0; */
+            margin: auto;
+            /* border: 5px solid red; */
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            height: auto;
+            /* margin-left: 2.0rem; */
+            width: 70%;
+            /* max-width: 50%; */
+            margin-bottom: 2.5rem;
+        }
+        
+        @media(min-width:45rem) {
+            .container {
+                flex-direction: row;
+                height: 100vh;
+            }
+            .login-container {
+                width: 40%;
+                max-width: 50%;
+                /* margin: unset; */
+                margin: auto;
+            }
+        }
+        
+        .login-container__signin {
+            filter: none;
+            padding: 1.5rem;
+            /* border: 2px solid white; */
+            margin: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .login-container__form {
+            display: flex;
+            flex-direction: column;
+            /* border: 1px solid orangered; */
+        }
+        
+        .login-container__signup {
+            margin: auto;
+            /* border: 1px solid orangered; */
+            width: 80%;
+        }
+        
+        .container__signup-header p {
+            text-align: center;
+            /* border: 1px solid orangered; */
+            font-size: 1.2rem;
+            margin: 0;
+            color: white;
+            margin-bottom: 1.5rem;
+            /* height: 5.0rem; */
+        }
+        
+        .input {
+            margin-bottom: 3.0rem;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid white;
+            color: white;
+            height: 2.0rem;
+            width: 100%;
+            padding: 1.0rem;
+        }
+        
+        .input:hover,
+        .input:focus {
+            border-bottom: 2px solid yellow;
+        }
+        
+        .btn {
+            margin: 0 auto;
+            width: 100%;
+            height: 2.5rem;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(black, navy);
+            color: white;
+        }
+        
+        .side-container {
+            margin: auto;
+            /* margin-bottom:1.5rem; */
+            /* width: 50%; */
+            /* border: 1px solid green; */
+        }
+        
+        .side-container__header {
+            text-align: center;
+            Color: white;
+            font-size: 2.0rem;
+        }
+        
+        .side-container__header h1 {
+            margin: 0;
+            ;
+            color: olivedrab;
+            /* filter: hue-rotate(90deg); */
+        }
+        
+        .side-container__header p,
+        blockquote {
+            color: maroon;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: #050505;
+        }
+        
+        blockquote {
+            color: orangered;
+            font-size: 3.5rem;
+            font-weight: bolder;
+        }
+    </style>
+</body>
+
+</html>
