@@ -10,6 +10,7 @@ exports.getLoginCreate = (req, res, next) => {
     res.render('./users/login', { meg_er: "" });
 }
 
+
 /* lay du lieu va save vao he thong */
 exports.postLoginCreate = (req, res, next) => {
     console.log(" Day la phan lay du lieu tu login %j", req.body);
@@ -36,6 +37,7 @@ exports.postLoginCreate = (req, res, next) => {
 exports.getUserCreate = (req, res, next) => {
     res.render('./users/signup');
 }
+
 
 exports.postUserCreate = (req, res, next) => {
     console.log(" Day la phan dang ky %j", req.body);

@@ -7,7 +7,7 @@ exports.getTodolistCreate = (req, res, next) => {
     }
     // tao moi todolist
 exports.postTodolistCreate = (req, res, next) => {
-    console.log('--------- v van duc----------');
+    console.log('');
     var data = new Todolist();
     console.log("body: %j", req.body)
     data.title = req.body.title ? req.body.title : data.title;
@@ -74,7 +74,7 @@ exports.listTodolist = (req, res, next) => {
             console.log('Co loi xay ra');
         }
         console.log('------- phan boday--------- %j', data);
-        res.render('index', { headline: 'xin chao cac ban', tagline: 'hom nay thu may', data: data });
+        res.render('index', { data: data });
     });
     // }else{
     //     res.redirect('users/login');

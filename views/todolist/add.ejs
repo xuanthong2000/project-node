@@ -1,29 +1,40 @@
-
 <% include ../partials/header %>
-<div>
-    <a href="/">Quay lại</a>
-</div>
-<main role="main">
+    <div>
+        <a href="/">Quay lại</a>
+    </div>
+    <main role="main">
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <!-- Đây se la phan top cua page -->
-    <% include ../partials/toppage %>
-    <div class="container">
-      <!-- Example row of columns -->
-      <h3 class="diary-title">Thêm mới công việc</h3>
-      <form method="POST">
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Tiêu đề công việc</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" name="title">
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Nội dung công việc</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Thêm mới</button>
-      <hr>
-    </form>
-    </div> <!-- /container -->
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <!-- Đây se la phan top cua page -->
+        <% include ../partials/toppage %>
+            <div class="container">
+                <!-- Example row of columns -->
+                <h3 class="diary-title">Thêm mới công việc</h3>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Tiêu đề công việc</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Nội dung công việc</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Ngày hết hạn</label>
+                        <input type="text" class="form-control datepicker" id="sandbox-container" data-provide="datepicker" name="deadline_date">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                    <hr>
+                </form>
+            </div>
+            <!-- /container -->
 
-  </main>
-<% include ../partials/footer %>
+    </main>
+    <% include ../partials/footer %>
+        <script>
+            $(function() {
+                $("#sandbox-container").datepicker({
+                    dateFormat: "yy-mm-dd"
+                }).val()
+            });
+        </script>
